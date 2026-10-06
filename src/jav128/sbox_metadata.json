@@ -1,0 +1,13 @@
+{
+  "algorithm": "GA followed by simulated annealing",
+  "seed": 3735928559,
+  "population_size": 32,
+  "generations": 50,
+  "sa_steps": 5000,
+  "metrics": {
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02783203125,
+    "fitness": 9902.2783203125
+  }
+}
