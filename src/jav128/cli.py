@@ -4,6 +4,7 @@ from pathlib import Path
 import sys
 
 from .constants import BLOCK_SIZE
+from .decrypt import decrypt_file
 from .encrypt import encrypt_file
 
 
@@ -45,6 +46,11 @@ def build_parser() -> argparse.ArgumentParser:
     encrypt.add_argument("--key-hex", required=True, help="128-bit master key as 32 hex digits")
     encrypt.add_argument("--mode", required=True, choices=("ECB", "CBC", "CFB", "OFB", "CTR"))
     encrypt.add_argument("--nonce-hex", help="16-byte IV/counter; omit for a random value")
+
+    decrypt = subparsers.add_parser("decrypt", help="decrypt a file")
+    decrypt.add_argument("--input", required=True, type=Path)
+    decrypt.add_argument("--output", required=True, type=Path)
+    decrypt.add_argument("--key-hex", required=True, help="128-bit master key as 32 hex digits")
     return parser
 
 
@@ -54,10 +60,14 @@ def main(argv: list[str] | None = None) -> int:
     try:
         master_key = _parse_hex(args.key_hex, "master key", BLOCK_SIZE)
         nonce = None
-        if args.nonce_hex is not None:
+        if args.command == "encrypt" and args.nonce_hex is not None:
             nonce = _parse_hex(args.nonce_hex, "IV/counter", BLOCK_SIZE)
         round_keys = _load_round_keys(master_key)
-        encrypt_file(args.input, args.output, master_key, round_keys, args.mode, nonce)
+        if args.command == "encrypt":
+            encrypt_file(args.input, args.output, master_key, round_keys, args.mode, nonce)
+        else:
+            decrypt_file(args.input, args.output, master_key, round_keys)
+            print(f"decrypted {args.input} to {args.output}")
     except (OSError, OverflowError, ValueError, RuntimeError) as exc:
         print(f"jav128: error: {exc}", file=sys.stderr)
         return 2

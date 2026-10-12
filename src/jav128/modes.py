@@ -41,6 +41,35 @@ def encrypt_mode(
     return ciphertext, nonce
 
 
+def decrypt_mode(
+    ciphertext: bytes,
+    round_keys: Sequence[bytes],
+    mode: str,
+    nonce: bytes | None = None,
+    *,
+    block_encryptor: BlockEncryptor,
+    block_decryptor: BlockEncryptor,
+) -> bytes:
+    normalized_mode = mode.upper()
+    if normalized_mode not in MODE_IDS:
+        raise ValueError("mode must be one of ECB, CBC, CFB, OFB, CTR")
+    if not ciphertext or len(ciphertext) % BLOCK_SIZE:
+        raise ValueError("mode input must be a non-empty multiple of 16 bytes")
+    if normalized_mode == "ECB":
+        if nonce is not None:
+            raise ValueError("ECB must not use an IV or counter")
+        return _decrypt_ecb(ciphertext, round_keys, block_decryptor)
+    if nonce is None or len(nonce) != BLOCK_SIZE:
+        raise ValueError("non-ECB mode requires a 16-byte IV/counter")
+    if normalized_mode == "CBC":
+        return _decrypt_cbc(ciphertext, round_keys, nonce, block_decryptor)
+    if normalized_mode == "CFB":
+        return _decrypt_cfb(ciphertext, round_keys, nonce, block_encryptor)
+    if normalized_mode == "OFB":
+        return _decrypt_ofb(ciphertext, round_keys, nonce, block_encryptor)
+    return _decrypt_ctr(ciphertext, round_keys, nonce, block_encryptor)
+
+
 def _xor(left: bytes, right: bytes) -> bytes:
     return bytes(a ^ b for a, b in zip(left, right, strict=True))
 
@@ -95,3 +124,33 @@ def _encrypt_ctr(data, keys, initial_counter, encrypt_block):
                 raise OverflowError("CTR counter would wrap past 128 bits")
             counter += 1
     return bytes(output)
+
+
+def _decrypt_ecb(data, keys, decrypt_block):
+    return b"".join(decrypt_block(block, keys) for block in _blocks(data))
+
+
+def _decrypt_cbc(data, keys, iv, decrypt_block):
+    feedback = iv
+    output = bytearray()
+    for block in _blocks(data):
+        output.extend(_xor(decrypt_block(block, keys), feedback))
+        feedback = block
+    return bytes(output)
+
+
+def _decrypt_cfb(data, keys, iv, encrypt_block):
+    feedback = iv
+    output = bytearray()
+    for block in _blocks(data):
+        output.extend(_xor(block, encrypt_block(feedback, keys)))
+        feedback = block
+    return bytes(output)
+
+
+def _decrypt_ofb(data, keys, iv, encrypt_block):
+    return _encrypt_ofb(data, keys, iv, encrypt_block)
+
+
+def _decrypt_ctr(data, keys, initial_counter, encrypt_block):
+    return _encrypt_ctr(data, keys, initial_counter, encrypt_block)
