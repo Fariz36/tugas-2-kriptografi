@@ -12,6 +12,7 @@ dependencies = []
 [project.optional-dependencies]
 sbox-search = ["numpy>=1.24"]
 analysis = ["numpy>=1.24", "matplotlib>=3.7"]
+docs = ["Sphinx>=8,<9"]
 
 [project.scripts]
 jav128 = "jav128.cli:main"

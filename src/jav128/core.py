@@ -59,6 +59,15 @@ def _validate_round_keys(round_keys: Sequence[bytes]) -> None:
 
 
 def encrypt_block(block: bytes, round_keys: Sequence[bytes]) -> bytes:
+    """Enkripsi satu blok mentah sepanjang 16 byte.
+
+    :param block: Blok plainteks sepanjang 16 byte.
+    :param round_keys: 17 kunci putaran, masing-masing sepanjang 16 byte.
+    :returns: Blok cipherteks sepanjang 16 byte.
+    :raises ValueError: Blok atau susunan kunci putaran tidak valid.
+
+    Fungsi ini tidak menambahkan padding, IV, header, atau autentikasi.
+    Gunakan :func:`jav128.encrypt.encrypt_bytes` untuk container berkas."""
     if not isinstance(block, bytes) or len(block) != BLOCK_SIZE:
         raise ValueError("JAV-128 block input must be exactly 16 bytes")
     _validate_round_keys(round_keys)
@@ -82,6 +91,14 @@ def encrypt_block(block: bytes, round_keys: Sequence[bytes]) -> bytes:
 
 
 def decrypt_block(block: bytes, round_keys: Sequence[bytes]) -> bytes:
+    """Dekripsi satu blok mentah sepanjang 16 byte.
+
+    :param block: Blok cipherteks sepanjang 16 byte.
+    :param round_keys: 17 kunci putaran yang digunakan saat enkripsi.
+    :returns: Blok plainteks sepanjang 16 byte.
+    :raises ValueError: Blok atau susunan kunci putaran tidak valid.
+
+    Fungsi ini tidak memeriksa autentikasi atau menghapus padding."""
     if not isinstance(block, bytes) or len(block) != BLOCK_SIZE:
         raise ValueError("JAV-128 block input must be exactly 16 bytes")
     _validate_round_keys(round_keys)

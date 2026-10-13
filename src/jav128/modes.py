@@ -14,6 +14,20 @@ def encrypt_mode(
     *,
     block_encryptor: BlockEncryptor,
 ) -> tuple[bytes, bytes | None]:
+    """Enkripsi data yang sudah diberi padding melalui mode blok.
+
+    :param padded_plaintext: Data tidak kosong dengan panjang kelipatan 16 byte.
+    :param round_keys: Kunci putaran yang diteruskan kepada fungsi blok.
+    :param mode: ECB, CBC, CFB (CFB-128), OFB, atau CTR; tidak peka huruf besar.
+    :param nonce: IV/counter 16 byte, atau ``None`` untuk membuat nilai acak.
+        ECB hanya menerima ``None``.
+    :param block_encryptor: Fungsi enkripsi dengan argumen blok dan kunci putaran.
+    :returns: Tuple ``(ciphertext, used_nonce)``; nonce ECB adalah ``None``.
+    :raises ValueError: Mode, panjang data, atau IV/counter tidak valid.
+    :raises OverflowError: Counter CTR melampaui rentang 128 bit.
+
+    Tidak menambahkan padding atau autentikasi. CTR memakai counter big-endian.
+    Validasi kunci putaran diserahkan kepada fungsi blok yang diberikan."""
     normalized_mode = mode.upper()
     if normalized_mode not in MODE_IDS:
         raise ValueError("mode must be one of ECB, CBC, CFB, OFB, CTR")
@@ -50,6 +64,20 @@ def decrypt_mode(
     block_encryptor: BlockEncryptor,
     block_decryptor: BlockEncryptor,
 ) -> bytes:
+    """Dekripsi payload mode blok tanpa menghapus padding.
+
+    :param ciphertext: Data tidak kosong dengan panjang kelipatan 16 byte.
+    :param round_keys: Kunci putaran yang diteruskan kepada fungsi blok.
+    :param mode: ECB, CBC, CFB (CFB-128), OFB, atau CTR; tidak peka huruf besar.
+    :param nonce: IV/counter 16 byte dari enkripsi; ``None`` untuk ECB.
+    :param block_encryptor: Fungsi enkripsi blok; digunakan oleh CFB, OFB, CTR.
+    :param block_decryptor: Fungsi dekripsi blok; digunakan oleh ECB dan CBC.
+    :returns: Data terdekripsi yang masih memiliki padding.
+    :raises ValueError: Mode, panjang data, atau IV/counter tidak valid.
+    :raises OverflowError: Counter CTR melampaui rentang 128 bit.
+
+    Tidak memeriksa autentikasi. Validasi kunci putaran diserahkan kepada
+    fungsi blok yang diberikan."""
     normalized_mode = mode.upper()
     if normalized_mode not in MODE_IDS:
         raise ValueError("mode must be one of ECB, CBC, CFB, OFB, CTR")

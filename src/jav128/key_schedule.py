@@ -6,7 +6,14 @@ from .sbox import SBOX
 
 
 def expand_round_keys(master_key: bytes) -> Sequence[bytes]:
-    """Expand w1..w4 with revision-2 bijective SubWord mixing."""
+    """Bentuk 17 kunci putaran dari satu master key.
+
+    :param master_key: Kunci berupa ``bytes`` sepanjang 16 byte.
+    :returns: Daftar 17 kunci sepanjang 16 byte; kunci pertama adalah master key.
+    :raises ValueError: Master key bukan ``bytes`` sepanjang 16 byte.
+
+    Empat word awal dibaca dengan urutan little-endian. Word berikutnya
+    menggunakan penjumlahan modular, S-box tetap, rotasi, dan XOR."""
     if not isinstance(master_key, bytes) or len(master_key) != BLOCK_SIZE:
         raise ValueError("master key must be exactly 16 bytes")
     words = [int.from_bytes(master_key[offset:offset + 4], "little")

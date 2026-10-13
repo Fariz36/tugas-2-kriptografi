@@ -41,6 +41,20 @@ Kunci harus terdiri atas 32 digit heksadesimal. Pilihan `--mode` adalah `ECB`, `
 
 Berkas `.jav` merupakan container biner dengan magic `JAV1`. Autentikasi, padding, dan panjang data diperiksa sebelum hasil dekripsi ditulis. Perintah `analyze` memeriksa kecocokan plainteks, lalu menghitung entropi byte dan histogram payload cipherteks. Pemrosesan berkas berlangsung di memori, sehingga ukuran masukan dibatasi oleh RAM yang tersedia.
 
+## Dokumentasi API Python
+
+Panduan penggunaan dan referensi fungsi tersedia dalam [sumber dokumentasi API](docs/api/index.rst). Sphinx mengambil signature dan docstring langsung dari kode Python, sehingga rincian fungsi tidak perlu ditulis ulang di halaman referensi.
+
+Bangun dokumentasi dan periksa contoh penggunaannya dari direktori repositori:
+
+```bash
+python -m pip install -e '.[docs]'
+python -m sphinx -W --keep-going -b html docs/api build/api/html
+python -m sphinx -W --keep-going -b doctest docs/api build/api/doctest
+```
+
+Buka `build/api/html/index.html` di browser. Referensi mencakup enkripsi/dekripsi bytes dan berkas, cipher blok, ekspansi kunci, mode operasi, padding, container, dan analisis data. Contoh menunjukkan cara membentuk kunci putaran dari master key yang sama sebelum memanggil API.
+
 ## Pengujian dan pengumpulan data
 
 Jalankan dari direktori utama repositori setelah memasang dependensi analisis:
