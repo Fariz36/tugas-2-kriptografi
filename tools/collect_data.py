@@ -171,9 +171,11 @@ def integrity(out):
         nonce=None if mode=="ECB" else IV
         container=encrypt_bytes(b"Acceptance: integrity and padding",KEY,keys,mode,nonce)
         check(mode,"wrong_key",container,flip(KEY,0))
-        legacy = Path("evidence/pre_revision_v1/data/encrypted") / f"edge_17.bin.{mode}.jav"
-        if legacy.exists():
-            check(mode, "legacy_v1_container", legacy.read_bytes())
+        # Check version rejection without retaining the old implementation or files.
+        legacy = bytearray(container)
+        legacy[4] = 1
+        legacy[-32:] = hmac.new(derive_mac_key(KEY), legacy[:-32], hashlib.sha256).digest()
+        check(mode, "legacy_v1_container", bytes(legacy))
         positions={"magic":0,"version":4,"mode":5,"nonce_length":6,"original_length":14,
                    "ciphertext":15+(16 if nonce else 0),"tag":len(container)-1}
         if nonce:positions["iv_counter"]=15

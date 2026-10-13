@@ -1,0 +1,8 @@
+{
+  "archive_removed": true,
+  "unit_tests_passed": 24,
+  "integrity_checks_passed": 160,
+  "version_1_checks": 10,
+  "method": "Version-1 header with correctly recomputed HMAC; no archived source or ciphertext required.",
+  "collector_sha256": "e9beadbeaefc1eca22037f8b853588ef30a46099a2755d03c1fc68211ce4f5b0"
+}
