@@ -1,0 +1,8 @@
+{
+  "differential_uniformity": 10,
+  "nonlinearity": 98,
+  "sac_deviation": 0.02587890625,
+  "fitness": 9902.2587890625
+}
+Wrote /tmp/jav128-reproduced/sbox.py and /tmp/jav128-reproduced/sbox_metadata.json
+PASS: full S-box table, inverse, metadata and convergence history exactly match the frozen run.

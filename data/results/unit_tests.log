@@ -1,0 +1,29 @@
+test_authentication_failure_does_not_expose_plaintext (test_decryption.DecryptionTests.test_authentication_failure_does_not_expose_plaintext) ... ok
+test_block_and_container_round_trips (test_decryption.DecryptionTests.test_block_and_container_round_trips) ... ok
+test_malformed_header_is_rejected (test_decryption.DecryptionTests.test_malformed_header_is_rejected) ... ok
+test_valid_tag_with_invalid_padding_is_rejected (test_decryption.DecryptionTests.test_valid_tag_with_invalid_padding_is_rejected) ... ok
+test_authenticated_old_version_rejected_before_decryption (test_decryption.RevisionCompatibilityTests.test_authenticated_old_version_rejected_before_decryption) ... ok
+test_former_related_key_pairs_no_longer_collide (test_decryption.RevisionCompatibilityTests.test_former_related_key_pairs_no_longer_collide) ... ok
+test_every_key_bit_reaches_generated_round_keys (test_design.DesignTests.test_every_key_bit_reaches_generated_round_keys) ... ok
+test_mixing_layers_have_an_explicit_inverse (test_design.DesignTests.test_mixing_layers_have_an_explicit_inverse) ... ok
+test_rotation_and_permutation_inverses (test_design.DesignTests.test_rotation_and_permutation_inverses) ... ok
+test_schedule_matches_independent_word_recurrence (test_design.DesignTests.test_schedule_matches_independent_word_recurrence) ... ok
+test_statistics_and_distance (test_design.DesignTests.test_statistics_and_distance) ... ok
+test_encrypt_block_is_deterministic_and_validates_inputs (test_encryption.CipherCoreTests.test_encrypt_block_is_deterministic_and_validates_inputs) ... ok
+test_pkcs7_always_adds_a_block_when_input_is_aligned (test_encryption.CipherCoreTests.test_pkcs7_always_adds_a_block_when_input_is_aligned) ... ok
+test_sbox_and_inverse_are_byte_permutations (test_encryption.CipherCoreTests.test_sbox_and_inverse_are_byte_permutations) ... ok
+test_all_modes_support_empty_and_arbitrary_binary_input (test_encryption.ModeEncryptionTests.test_all_modes_support_empty_and_arbitrary_binary_input) ... ok
+test_authenticated_container_layout_and_tag (test_encryption.ModeEncryptionTests.test_authenticated_container_layout_and_tag) ... ok
+test_ctr_accepts_last_counter_for_one_block (test_encryption.ModeEncryptionTests.test_ctr_accepts_last_counter_for_one_block) ... ok
+test_ctr_rejects_counter_wrap (test_encryption.ModeEncryptionTests.test_ctr_rejects_counter_wrap) ... ok
+test_each_mode_returns_block_aligned_ciphertext_and_expected_nonce (test_encryption.ModeEncryptionTests.test_each_mode_returns_block_aligned_ciphertext_and_expected_nonce) ... ok
+test_fixed_nonce_produces_repeatable_container (test_encryption.ModeEncryptionTests.test_fixed_nonce_produces_repeatable_container) ... ok
+test_invalid_iv_and_mode_are_rejected (test_encryption.ModeEncryptionTests.test_invalid_iv_and_mode_are_rejected) ... ok
+test_three_block_vectors (test_modes_reference.ModeReferenceTests.test_three_block_vectors) ... ok
+test_metrics_reject_non_permutations (test_sbox_search.SBoxSearchTests.test_metrics_reject_non_permutations) ... ok
+test_search_is_reproducible_and_bijective (test_sbox_search.SBoxSearchTests.test_search_is_reproducible_and_bijective) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 1.128s
+
+OK

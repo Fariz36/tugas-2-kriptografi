@@ -2,7 +2,6 @@ import hashlib
 import hmac
 from collections.abc import Sequence
 from pathlib import Path
-import tempfile
 
 from .constants import (
     BLOCK_SIZE,
@@ -21,8 +20,10 @@ from .padding import unpad_pkcs7
 def parse_container(data: bytes, master_key: bytes) -> tuple[str, int, bytes | None, bytes]:
     if len(data) < 15 + TAG_SIZE:
         raise ValueError("container is truncated")
-    if data[:4] != MAGIC or data[4] != FORMAT_VERSION:
+    if data[:4] != MAGIC:
         raise ValueError("invalid container header")
+    if data[4] != FORMAT_VERSION:
+        raise ValueError(f"unsupported container version {data[4]}; expected {FORMAT_VERSION}")
 
     mode = ID_MODES.get(data[5])
     if mode is None:

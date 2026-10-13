@@ -1,0 +1,19 @@
+{
+  "algorithm": "GA followed by simulated annealing",
+  "seed": 3235823838,
+  "population_size": 32,
+  "generations": 50,
+  "sa_steps": 5000,
+  "elitism": 2,
+  "tournament_size": 3,
+  "crossover_rate": 0.8,
+  "mutation_rate": 0.1,
+  "sa_initial_temperature": 25.0,
+  "sa_final_temperature": 0.1,
+  "metrics": {
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  }
+}

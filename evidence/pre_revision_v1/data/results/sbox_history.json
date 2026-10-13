@@ -1,0 +1,810 @@
+[
+  {
+    "phase": "initial",
+    "step": 0,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.03271484375,
+    "fitness": 9904.3271484375
+  },
+  {
+    "phase": "GA",
+    "step": 1,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.03271484375,
+    "fitness": 9904.3271484375
+  },
+  {
+    "phase": "GA",
+    "step": 2,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.03271484375,
+    "fitness": 9904.3271484375
+  },
+  {
+    "phase": "GA",
+    "step": 3,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9904.3173828125
+  },
+  {
+    "phase": "GA",
+    "step": 4,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.031494140625,
+    "fitness": 9904.31494140625
+  },
+  {
+    "phase": "GA",
+    "step": 5,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.03125,
+    "fitness": 9904.3125
+  },
+  {
+    "phase": "GA",
+    "step": 6,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.030029296875,
+    "fitness": 9904.30029296875
+  },
+  {
+    "phase": "GA",
+    "step": 7,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.030029296875,
+    "fitness": 9904.30029296875
+  },
+  {
+    "phase": "GA",
+    "step": 8,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.030029296875,
+    "fitness": 9904.30029296875
+  },
+  {
+    "phase": "GA",
+    "step": 9,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.028564453125,
+    "fitness": 9904.28564453125
+  },
+  {
+    "phase": "GA",
+    "step": 10,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.028564453125,
+    "fitness": 9904.28564453125
+  },
+  {
+    "phase": "GA",
+    "step": 11,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.028564453125,
+    "fitness": 9904.28564453125
+  },
+  {
+    "phase": "GA",
+    "step": 12,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.028076171875,
+    "fitness": 9904.28076171875
+  },
+  {
+    "phase": "GA",
+    "step": 13,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.028076171875,
+    "fitness": 9904.28076171875
+  },
+  {
+    "phase": "GA",
+    "step": 14,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.028076171875,
+    "fitness": 9904.28076171875
+  },
+  {
+    "phase": "GA",
+    "step": 15,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.027587890625,
+    "fitness": 9904.27587890625
+  },
+  {
+    "phase": "GA",
+    "step": 16,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.027587890625,
+    "fitness": 9904.27587890625
+  },
+  {
+    "phase": "GA",
+    "step": 17,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.027587890625,
+    "fitness": 9904.27587890625
+  },
+  {
+    "phase": "GA",
+    "step": 18,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.027587890625,
+    "fitness": 9904.27587890625
+  },
+  {
+    "phase": "GA",
+    "step": 19,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02734375,
+    "fitness": 9904.2734375
+  },
+  {
+    "phase": "GA",
+    "step": 20,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02734375,
+    "fitness": 9904.2734375
+  },
+  {
+    "phase": "GA",
+    "step": 21,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02734375,
+    "fitness": 9904.2734375
+  },
+  {
+    "phase": "GA",
+    "step": 22,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02734375,
+    "fitness": 9904.2734375
+  },
+  {
+    "phase": "GA",
+    "step": 23,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.026611328125,
+    "fitness": 9904.26611328125
+  },
+  {
+    "phase": "GA",
+    "step": 24,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0263671875,
+    "fitness": 9904.263671875
+  },
+  {
+    "phase": "GA",
+    "step": 25,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0263671875,
+    "fitness": 9904.263671875
+  },
+  {
+    "phase": "GA",
+    "step": 26,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02490234375,
+    "fitness": 9904.2490234375
+  },
+  {
+    "phase": "GA",
+    "step": 27,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02490234375,
+    "fitness": 9904.2490234375
+  },
+  {
+    "phase": "GA",
+    "step": 28,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02490234375,
+    "fitness": 9904.2490234375
+  },
+  {
+    "phase": "GA",
+    "step": 29,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02490234375,
+    "fitness": 9904.2490234375
+  },
+  {
+    "phase": "GA",
+    "step": 30,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02490234375,
+    "fitness": 9904.2490234375
+  },
+  {
+    "phase": "GA",
+    "step": 31,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.024169921875,
+    "fitness": 9904.24169921875
+  },
+  {
+    "phase": "GA",
+    "step": 32,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.024169921875,
+    "fitness": 9904.24169921875
+  },
+  {
+    "phase": "GA",
+    "step": 33,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.024169921875,
+    "fitness": 9904.24169921875
+  },
+  {
+    "phase": "GA",
+    "step": 34,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.024169921875,
+    "fitness": 9904.24169921875
+  },
+  {
+    "phase": "GA",
+    "step": 35,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02392578125,
+    "fitness": 9904.2392578125
+  },
+  {
+    "phase": "GA",
+    "step": 36,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02392578125,
+    "fitness": 9904.2392578125
+  },
+  {
+    "phase": "GA",
+    "step": 37,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02392578125,
+    "fitness": 9904.2392578125
+  },
+  {
+    "phase": "GA",
+    "step": 38,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02392578125,
+    "fitness": 9904.2392578125
+  },
+  {
+    "phase": "GA",
+    "step": 39,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0234375,
+    "fitness": 9904.234375
+  },
+  {
+    "phase": "GA",
+    "step": 40,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0234375,
+    "fitness": 9904.234375
+  },
+  {
+    "phase": "GA",
+    "step": 41,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0234375,
+    "fitness": 9904.234375
+  },
+  {
+    "phase": "GA",
+    "step": 42,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0234375,
+    "fitness": 9904.234375
+  },
+  {
+    "phase": "GA",
+    "step": 43,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0234375,
+    "fitness": 9904.234375
+  },
+  {
+    "phase": "GA",
+    "step": 44,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0234375,
+    "fitness": 9904.234375
+  },
+  {
+    "phase": "GA",
+    "step": 45,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02294921875,
+    "fitness": 9904.2294921875
+  },
+  {
+    "phase": "GA",
+    "step": 46,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02294921875,
+    "fitness": 9904.2294921875
+  },
+  {
+    "phase": "GA",
+    "step": 47,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02294921875,
+    "fitness": 9904.2294921875
+  },
+  {
+    "phase": "GA",
+    "step": 48,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02294921875,
+    "fitness": 9904.2294921875
+  },
+  {
+    "phase": "GA",
+    "step": 49,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.02294921875,
+    "fitness": 9904.2294921875
+  },
+  {
+    "phase": "GA",
+    "step": 50,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0224609375,
+    "fitness": 9904.224609375
+  },
+  {
+    "phase": "SA",
+    "step": 100,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0224609375,
+    "fitness": 9904.224609375
+  },
+  {
+    "phase": "SA",
+    "step": 200,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0224609375,
+    "fitness": 9904.224609375
+  },
+  {
+    "phase": "SA",
+    "step": 300,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0224609375,
+    "fitness": 9904.224609375
+  },
+  {
+    "phase": "SA",
+    "step": 400,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0224609375,
+    "fitness": 9904.224609375
+  },
+  {
+    "phase": "SA",
+    "step": 500,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0224609375,
+    "fitness": 9904.224609375
+  },
+  {
+    "phase": "SA",
+    "step": 600,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0224609375,
+    "fitness": 9904.224609375
+  },
+  {
+    "phase": "SA",
+    "step": 700,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0224609375,
+    "fitness": 9904.224609375
+  },
+  {
+    "phase": "SA",
+    "step": 800,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0224609375,
+    "fitness": 9904.224609375
+  },
+  {
+    "phase": "SA",
+    "step": 900,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0224609375,
+    "fitness": 9904.224609375
+  },
+  {
+    "phase": "SA",
+    "step": 1000,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0224609375,
+    "fitness": 9904.224609375
+  },
+  {
+    "phase": "SA",
+    "step": 1100,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0224609375,
+    "fitness": 9904.224609375
+  },
+  {
+    "phase": "SA",
+    "step": 1200,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0224609375,
+    "fitness": 9904.224609375
+  },
+  {
+    "phase": "SA",
+    "step": 1300,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0224609375,
+    "fitness": 9904.224609375
+  },
+  {
+    "phase": "SA",
+    "step": 1400,
+    "differential_uniformity": 10,
+    "nonlinearity": 96,
+    "sac_deviation": 0.0224609375,
+    "fitness": 9904.224609375
+  },
+  {
+    "phase": "SA",
+    "step": 1500,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9902.3173828125
+  },
+  {
+    "phase": "SA",
+    "step": 1600,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9902.3173828125
+  },
+  {
+    "phase": "SA",
+    "step": 1700,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9902.3173828125
+  },
+  {
+    "phase": "SA",
+    "step": 1800,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9902.3173828125
+  },
+  {
+    "phase": "SA",
+    "step": 1900,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9902.3173828125
+  },
+  {
+    "phase": "SA",
+    "step": 2000,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9902.3173828125
+  },
+  {
+    "phase": "SA",
+    "step": 2100,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9902.3173828125
+  },
+  {
+    "phase": "SA",
+    "step": 2200,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9902.3173828125
+  },
+  {
+    "phase": "SA",
+    "step": 2300,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9902.3173828125
+  },
+  {
+    "phase": "SA",
+    "step": 2400,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9902.3173828125
+  },
+  {
+    "phase": "SA",
+    "step": 2500,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9902.3173828125
+  },
+  {
+    "phase": "SA",
+    "step": 2600,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9902.3173828125
+  },
+  {
+    "phase": "SA",
+    "step": 2700,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9902.3173828125
+  },
+  {
+    "phase": "SA",
+    "step": 2800,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9902.3173828125
+  },
+  {
+    "phase": "SA",
+    "step": 2900,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9902.3173828125
+  },
+  {
+    "phase": "SA",
+    "step": 3000,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9902.3173828125
+  },
+  {
+    "phase": "SA",
+    "step": 3100,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.03173828125,
+    "fitness": 9902.3173828125
+  },
+  {
+    "phase": "SA",
+    "step": 3200,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 3300,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 3400,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 3500,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 3600,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 3700,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 3800,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 3900,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 4000,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 4100,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 4200,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 4300,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 4400,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 4500,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 4600,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 4700,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 4800,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 4900,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  },
+  {
+    "phase": "SA",
+    "step": 5000,
+    "differential_uniformity": 10,
+    "nonlinearity": 98,
+    "sac_deviation": 0.02587890625,
+    "fitness": 9902.2587890625
+  }
+]

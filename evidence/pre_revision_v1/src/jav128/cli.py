@@ -1,0 +1,98 @@
+import argparse
+import importlib
+import json
+from pathlib import Path
+import sys
+
+from .constants import BLOCK_SIZE
+from .decrypt import decrypt_file
+from .encrypt import encrypt_file
+
+
+def _parse_hex(value: str, label: str, expected_bytes: int) -> bytes:
+    if len(value) != expected_bytes * 2:
+        raise ValueError(f"{label} must be exactly {expected_bytes * 2} hex digits")
+    try:
+        decoded = bytes.fromhex(value)
+    except ValueError as exc:
+        raise ValueError(f"{label} must be hexadecimal") from exc
+    if len(decoded) != expected_bytes:
+        raise ValueError(f"{label} must encode exactly {expected_bytes} bytes")
+    return decoded
+
+
+def _load_round_keys(master_key: bytes):
+    try:
+        module = importlib.import_module("jav128.key_schedule")
+    except ModuleNotFoundError as exc:
+        if exc.name == "jav128.key_schedule":
+            raise RuntimeError(
+                "key scheduler is not integrated yet; it must provide "
+                "expand_round_keys(master_key) -> 17 16-byte keys"
+            ) from exc
+        raise
+    expand_round_keys = getattr(module, "expand_round_keys", None)
+    if not callable(expand_round_keys):
+        raise RuntimeError("jav128.key_schedule must define expand_round_keys(master_key)")
+    return expand_round_keys(master_key)
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(prog="jav128", description="JAV-128 file encryption")
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    encrypt = subparsers.add_parser("encrypt", help="encrypt a file")
+    encrypt.add_argument("--input", required=True, type=Path)
+    encrypt.add_argument("--output", required=True, type=Path)
+    encrypt.add_argument("--key-hex", required=True, help="128-bit master key as 32 hex digits")
+    encrypt.add_argument("--mode", required=True, choices=("ECB", "CBC", "CFB", "OFB", "CTR"))
+    encrypt.add_argument("--nonce-hex", help="16-byte IV/counter; omit for a random value")
+
+    decrypt = subparsers.add_parser("decrypt", help="decrypt a file")
+    decrypt.add_argument("--input", required=True, type=Path)
+    decrypt.add_argument("--output", required=True, type=Path)
+    decrypt.add_argument("--key-hex", required=True, help="128-bit master key as 32 hex digits")
+    analyze = subparsers.add_parser("analyze", help="measure plaintext and authenticated ciphertext byte statistics")
+    analyze.add_argument("--input", required=True, type=Path, help="JAV1 container")
+    analyze.add_argument("--plaintext", required=True, type=Path)
+    analyze.add_argument("--key-hex", required=True)
+    analyze.add_argument("--output", required=True, type=Path, help="JSON statistics")
+    return parser
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    try:
+        master_key = _parse_hex(args.key_hex, "master key", BLOCK_SIZE)
+        nonce = None
+        if args.command == "encrypt" and args.nonce_hex is not None:
+            nonce = _parse_hex(args.nonce_hex, "IV/counter", BLOCK_SIZE)
+        if args.command == "analyze":
+            from .analysis import byte_statistics
+            from .decrypt import parse_container
+            mode, length, nonce, payload = parse_container(args.input.read_bytes(), master_key)
+            plaintext = args.plaintext.read_bytes()
+            round_keys = _load_round_keys(master_key)
+            from .decrypt import decrypt_bytes
+            if decrypt_bytes(args.input.read_bytes(), master_key, round_keys) != plaintext:
+                raise ValueError("plaintext does not match authenticated container")
+            result = {"mode": mode, "original_length": length,
+                      "plaintext": byte_statistics(plaintext),
+                      "ciphertext_payload": byte_statistics(payload)}
+            args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+            return 0
+        round_keys = _load_round_keys(master_key)
+        if args.command == "encrypt":
+            encrypt_file(args.input, args.output, master_key, round_keys, args.mode, nonce)
+        else:
+            decrypt_file(args.input, args.output, master_key, round_keys)
+            print(f"decrypted {args.input} to {args.output}")
+    except (OSError, OverflowError, ValueError, RuntimeError) as exc:
+        print(f"jav128: error: {exc}", file=sys.stderr)
+        return 2
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

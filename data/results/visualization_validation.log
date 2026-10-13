@@ -1,0 +1,1 @@
+PASS revision 2: 29 PNG/PDF figure pairs; all PNGs decode and all PDFs have one readable page. Key-schedule and avalanche plots visually inspected after regeneration. Plot input hashes verified against current measurements.

@@ -1,0 +1,150 @@
+{
+  "cipher_revision": 2,
+  "container_version": 2,
+  "seed": 1245795889,
+  "experiment_key_hex": "000102030405060708090a0b0c0d0e0f",
+  "experiment_iv_hex": "101112131415161718191a1b1c1d1e1f",
+  "python": "3.12.13",
+  "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "numpy": "2.5.4",
+  "matplotlib": "3.11.2",
+  "base_commit": "82244e7c0ae0c7caed3cdc1737880694c1213e65",
+  "working_tree_changes": " M README.md\n M pyproject.toml\n M src/jav128/cli.py\n M src/jav128/constants.py\n M src/jav128/decrypt.py\n M src/jav128/key_schedule.py\n M src/jav128/sbox.py\n M src/jav128/sbox_metadata.json\n M tests/test_decryption.py\n M tests/test_encryption.py\n M tools/sbox_search.py\n?? \"Copy of Tugas2-IF4020-2026-2.pdf\"\n?? data/\n?? docs/\n?? evidence/\n?? src/jav128/analysis.py\n?? tests/test_design.py\n?? tests/test_modes_reference.py\n?? tools/collect_data.py\n?? tools/collect_design.py\n?? tools/plot_results.py\n?? tools/verify_cli.py\n",
+  "source_hashes": {
+    "src/jav128/__init__.py": "48c2de001b22ee0bb2234787c3ddea18ea33d5c919d1da5a9084e7716f914a56",
+    "src/jav128/analysis.py": "353fde809c4230551ebd58ba78b6bc84ae7cca7d857492bb5a04ab8bd79e2c11",
+    "src/jav128/cli.py": "4a67158e1e7ad614a71a8036fb3c80ada21327297a5ae4ae71422dec36e22ea3",
+    "src/jav128/constants.py": "8585967030fa97167a3d6dcbda056d0bf9fc7b5344f501dec6d5b3b6ff1a2461",
+    "src/jav128/container.py": "3f67c11f0902553a4b7150ddf6e34dbe1fee8a34850e15ed2398752a950ea766",
+    "src/jav128/core.py": "394a535ca6f382da1a67a5bc752e6ce433080fecccd899149cb4126506564621",
+    "src/jav128/decrypt.py": "e1bf811a589f4117cc662fee7dcd1e58cb7882ee0acb33144b7e6faca2d851af",
+    "src/jav128/encrypt.py": "cf335a9cefea691f719ee9758da84cfb36aa616bb586ae8938e666ce5afdcfd1",
+    "src/jav128/key_schedule.py": "2155ad1b9097e8d32ba3c37f159e16bdb77e0b39452737e2adbcaee31e4273b6",
+    "src/jav128/modes.py": "a44e95fab9bcac6cc91d2cab8c66f44acc78d6af28b9e0f6be4652cca97c9d32",
+    "src/jav128/padding.py": "a9371f4c176df0f04988a9e352688e2b87dc43781633a10ebe5c0cf7224825d0",
+    "src/jav128/sbox.py": "68816746cc6f99f4c7aadbfc3e6ca75b0048a89c710cacd4f201cf612f9de6a3",
+    "src/jav128/sbox_metadata.json": "7d427c9336becc59208a07d4fb38d17dc0a5cf02cb9999a9fea029d8f54e18f5",
+    "tests/test_decryption.py": "991087968327c6c4959ae7f5f532be87f7948b9246a35ab5f66889b1d8e98a80",
+    "tests/test_design.py": "53502dc65bb50e4fa574ea4bc653b99d818b4234d0c9cd2f0d801d7b475da09a",
+    "tests/test_encryption.py": "dfb701b4921487e557261450914940e02010cfe52b132cf96b0e22881e3ed72e",
+    "tests/test_modes_reference.py": "365aec8493361270a930dd77bf51298bb70f19936b012ba24cca24185eb025c4",
+    "tests/test_sbox_search.py": "74b567a75ddf961a1e0acbbbc78963adde65dc19d27b0ecb5cae86528d3dcd47",
+    "tools/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tools/collect_data.py": "0910845b93a3989a8b6ad6fa4848f3104c0b22b6f7b923e7c3151661043fb9df",
+    "tools/collect_design.py": "35ecf418030f88b11a9bacfdbeb5096cf010250da97b9d19957e5ede2eeebc21",
+    "tools/plot_results.py": "ee7b0244f5b68bf5f13c3e6dfdce4ba19611e8397490a52cc33d9e1a2d6726f8",
+    "tools/sbox_search.py": "32a5ff74df8223ddde03d1d966fcdd5e82c20ac33200ce2a1b8ea1aab70db1ed",
+    "tools/verify_cli.py": "1f919cff27c46b93958efb85fbe4c6342fd1e6658b16aef9b033b55c954b1b41"
+  },
+  "inputs": [
+    {
+      "file": "edge_0.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "edge_1.bin",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "file": "edge_15.bin",
+      "bytes": 15,
+      "sha256": "7071fc3188fde7e7e500d4768f1784bede1a22e991648dcab9dc3219acff1d4c"
+    },
+    {
+      "file": "edge_16.bin",
+      "bytes": 16,
+      "sha256": "be45cb2605bf36bebde684841a28f0fd43c69850a3dce5fedba69928ee3a8991"
+    },
+    {
+      "file": "edge_17.bin",
+      "bytes": 17,
+      "sha256": "3e5718fea51a8f3f5baca61c77afab473c1810f8b9db330273b4011ce92c787e"
+    },
+    {
+      "file": "text_utf8.txt",
+      "bytes": 21248,
+      "sha256": "27331924b2104b2f861a982fad49bb88a63dbefefc4766e9661a29f31412d342"
+    },
+    {
+      "file": "image_checker.png",
+      "bytes": 485,
+      "sha256": "71640ea0d07738d8fd82ee37c78bcb99466763d4cac0e027781823b9680d9386"
+    },
+    {
+      "file": "repeated_64k.bin",
+      "bytes": 65536,
+      "sha256": "cb159074fbd890cb94b0db6959722325179631e4ab2086ec6a4555d4702f193b"
+    },
+    {
+      "file": "random_64k.bin",
+      "bytes": 65536,
+      "sha256": "49a5d36c6df8de0dd8d791104decedda42704402581fe1fe7b2e79858bd62446"
+    },
+    {
+      "file": "random_256k.bin",
+      "bytes": 262144,
+      "sha256": "58b2d43e57fba2c46ad401d8171fb03f83cc8fc0395bab957c2f8fc3b2bc313c"
+    }
+  ],
+  "core_samples": 16,
+  "mode_samples": 4,
+  "roundtrip_cases": 50,
+  "rejection_cases": 160,
+  "command": "PYTHONPATH=src:. python -m tools.collect_data",
+  "methodology": {
+    "ciphertext": "payload only; PKCS#7 included; header/IV/HMAC excluded",
+    "avalanche": "LSB-first bit indices 0..127; mode plaintext flips in first block of 64-byte input; fixed IV across pairs; independent seeded samples; keys re-expanded after every key flip",
+    "timing": "single-run wall-clock encryption/decryption including file IO, not a controlled benchmark",
+    "empty_entropy": "undefined (null), not zero",
+    "corpus": "synthetic reproducible text, valid generated PNG, repeated blocks and seeded random bytes"
+  },
+  "additional_commands": [
+    "python -m tools.collect_design",
+    "python -m tools.verify_cli",
+    "python -m tools.plot_results",
+    "python -m unittest discover -s tests -v"
+  ],
+  "validation": {
+    "unit_tests": 24,
+    "independent_reference_vectors": 35,
+    "cli_successful_commands": 15,
+    "cli_negative_checks": 1,
+    "saved_avalanche_trials": 9216,
+    "key_bit_comparisons": 4096,
+    "former_collision_regressions": 96,
+    "independent_raw_calculation_checks": true,
+    "before_after_plaintext_corpus_identical": true,
+    "unchanged_sbox_search_evidence_reused": true
+  },
+  "verification_source_hashes": {
+    "src/jav128/__init__.py": "48c2de001b22ee0bb2234787c3ddea18ea33d5c919d1da5a9084e7716f914a56",
+    "src/jav128/analysis.py": "353fde809c4230551ebd58ba78b6bc84ae7cca7d857492bb5a04ab8bd79e2c11",
+    "src/jav128/cli.py": "4a67158e1e7ad614a71a8036fb3c80ada21327297a5ae4ae71422dec36e22ea3",
+    "src/jav128/constants.py": "8585967030fa97167a3d6dcbda056d0bf9fc7b5344f501dec6d5b3b6ff1a2461",
+    "src/jav128/container.py": "3f67c11f0902553a4b7150ddf6e34dbe1fee8a34850e15ed2398752a950ea766",
+    "src/jav128/core.py": "394a535ca6f382da1a67a5bc752e6ce433080fecccd899149cb4126506564621",
+    "src/jav128/decrypt.py": "e1bf811a589f4117cc662fee7dcd1e58cb7882ee0acb33144b7e6faca2d851af",
+    "src/jav128/encrypt.py": "cf335a9cefea691f719ee9758da84cfb36aa616bb586ae8938e666ce5afdcfd1",
+    "src/jav128/key_schedule.py": "2155ad1b9097e8d32ba3c37f159e16bdb77e0b39452737e2adbcaee31e4273b6",
+    "src/jav128/modes.py": "a44e95fab9bcac6cc91d2cab8c66f44acc78d6af28b9e0f6be4652cca97c9d32",
+    "src/jav128/padding.py": "a9371f4c176df0f04988a9e352688e2b87dc43781633a10ebe5c0cf7224825d0",
+    "src/jav128/sbox.py": "68816746cc6f99f4c7aadbfc3e6ca75b0048a89c710cacd4f201cf612f9de6a3",
+    "src/jav128/sbox_metadata.json": "7d427c9336becc59208a07d4fb38d17dc0a5cf02cb9999a9fea029d8f54e18f5",
+    "tests/test_decryption.py": "c2adce3d4c95cd845f85b6b2452bb2356298e6b2bfa6ede5d4fc5e49e7508f99",
+    "tests/test_design.py": "53502dc65bb50e4fa574ea4bc653b99d818b4234d0c9cd2f0d801d7b475da09a",
+    "tests/test_encryption.py": "dfb701b4921487e557261450914940e02010cfe52b132cf96b0e22881e3ed72e",
+    "tests/test_modes_reference.py": "365aec8493361270a930dd77bf51298bb70f19936b012ba24cca24185eb025c4",
+    "tests/test_sbox_search.py": "74b567a75ddf961a1e0acbbbc78963adde65dc19d27b0ecb5cae86528d3dcd47",
+    "tools/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tools/collect_data.py": "0910845b93a3989a8b6ad6fa4848f3104c0b22b6f7b923e7c3151661043fb9df",
+    "tools/collect_design.py": "35ecf418030f88b11a9bacfdbeb5096cf010250da97b9d19957e5ede2eeebc21",
+    "tools/plot_results.py": "ee7b0244f5b68bf5f13c3e6dfdce4ba19611e8397490a52cc33d9e1a2d6726f8",
+    "tools/sbox_search.py": "32a5ff74df8223ddde03d1d966fcdd5e82c20ac33200ce2a1b8ea1aab70db1ed",
+    "tools/verify_cli.py": "1f919cff27c46b93958efb85fbe4c6342fd1e6658b16aef9b033b55c954b1b41"
+  },
+  "post_collection_source_changes": [
+    "tests/test_decryption.py: removed unused import and moved unittest.main below new regression tests; final test suite passed after cleanup"
+  ]
+}

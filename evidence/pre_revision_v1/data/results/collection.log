@@ -1,0 +1,156 @@
+Round trips and histograms: edge_0.bin
+Round trips and histograms: edge_1.bin
+Round trips and histograms: edge_15.bin
+Round trips and histograms: edge_16.bin
+Round trips and histograms: edge_17.bin
+Round trips and histograms: text_utf8.txt
+Round trips and histograms: image_checker.png
+Round trips and histograms: repeated_64k.bin
+Round trips and histograms: random_64k.bin
+Round trips and histograms: random_256k.bin
+Avalanche: core sample 1/16
+Avalanche: core sample 2/16
+Avalanche: core sample 3/16
+Avalanche: core sample 4/16
+Avalanche: core sample 5/16
+Avalanche: core sample 6/16
+Avalanche: core sample 7/16
+Avalanche: core sample 8/16
+Avalanche: core sample 9/16
+Avalanche: core sample 10/16
+Avalanche: core sample 11/16
+Avalanche: core sample 12/16
+Avalanche: core sample 13/16
+Avalanche: core sample 14/16
+Avalanche: core sample 15/16
+Avalanche: core sample 16/16
+Avalanche: mode sample 1/4
+Avalanche: mode sample 2/4
+Avalanche: mode sample 3/4
+Avalanche: mode sample 4/4
+{
+  "roundtrip_cases": 50,
+  "rejection_cases": 150,
+  "avalanche": [
+    {
+      "scope": "core",
+      "mode": "BLOCK",
+      "kind": "key",
+      "trials": 2048,
+      "mean_percent": 50.03852844238281,
+      "stddev_percent": 4.592069310244379,
+      "min_percent": 34.375,
+      "max_percent": 64.84375
+    },
+    {
+      "scope": "core",
+      "mode": "BLOCK",
+      "kind": "plaintext",
+      "trials": 2048,
+      "mean_percent": 49.95460510253906,
+      "stddev_percent": 4.514868579113941,
+      "min_percent": 35.15625,
+      "max_percent": 64.84375
+    },
+    {
+      "scope": "mode",
+      "mode": "CBC",
+      "kind": "key",
+      "trials": 512,
+      "mean_percent": 49.96368408203125,
+      "stddev_percent": 1.926668809561549,
+      "min_percent": 44.21875,
+      "max_percent": 55.9375
+    },
+    {
+      "scope": "mode",
+      "mode": "CBC",
+      "kind": "plaintext",
+      "trials": 512,
+      "mean_percent": 49.99114990234375,
+      "stddev_percent": 2.0133226534787596,
+      "min_percent": 44.6875,
+      "max_percent": 57.5
+    },
+    {
+      "scope": "mode",
+      "mode": "CFB",
+      "kind": "key",
+      "trials": 512,
+      "mean_percent": 50.01739501953125,
+      "stddev_percent": 2.052003045232021,
+      "min_percent": 42.8125,
+      "max_percent": 55.625
+    },
+    {
+      "scope": "mode",
+      "mode": "CFB",
+      "kind": "plaintext",
+      "trials": 512,
+      "mean_percent": 40.19775390625,
+      "stddev_percent": 1.7369290098500525,
+      "min_percent": 35.15625,
+      "max_percent": 45.15625
+    },
+    {
+      "scope": "mode",
+      "mode": "CTR",
+      "kind": "key",
+      "trials": 512,
+      "mean_percent": 50.03814697265625,
+      "stddev_percent": 2.032466640638616,
+      "min_percent": 43.4375,
+      "max_percent": 55.3125
+    },
+    {
+      "scope": "mode",
+      "mode": "CTR",
+      "kind": "plaintext",
+      "trials": 512,
+      "mean_percent": 0.15625,
+      "stddev_percent": 0.0,
+      "min_percent": 0.15625,
+      "max_percent": 0.15625
+    },
+    {
+      "scope": "mode",
+      "mode": "ECB",
+      "kind": "key",
+      "trials": 512,
+      "mean_percent": 49.9053955078125,
+      "stddev_percent": 1.953938855478459,
+      "min_percent": 43.4375,
+      "max_percent": 55.46875
+    },
+    {
+      "scope": "mode",
+      "mode": "ECB",
+      "kind": "plaintext",
+      "trials": 512,
+      "mean_percent": 9.9822998046875,
+      "stddev_percent": 0.8874284873533768,
+      "min_percent": 7.03125,
+      "max_percent": 12.65625
+    },
+    {
+      "scope": "mode",
+      "mode": "OFB",
+      "kind": "key",
+      "trials": 512,
+      "mean_percent": 49.93560791015625,
+      "stddev_percent": 2.023343846552176,
+      "min_percent": 40.9375,
+      "max_percent": 55.9375
+    },
+    {
+      "scope": "mode",
+      "mode": "OFB",
+      "kind": "plaintext",
+      "trials": 512,
+      "mean_percent": 0.15625,
+      "stddev_percent": 0.0,
+      "min_percent": 0.15625,
+      "max_percent": 0.15625
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "command": "python -m tools.plot_results",
+  "renderer": "tools/plot_results.py",
+  "renderer_sha256": "ee7b0244f5b68bf5f13c3e6dfdce4ba19611e8397490a52cc33d9e1a2d6726f8",
+  "matplotlib": "3.11.2",
+  "measurement_hashes": {
+    "histograms.json": "53ddcd4b7ee23a07dc21bdcb34b5d9e6e3f0e6d1b84533c2f01a609329f71875",
+    "roundtrips.csv": "007702ea9f175487131883aca58a2a620fa1e35574ce802082b6661da2264036",
+    "avalanche_summary.csv": "a5ff11b9c9ff8a784c8009318f57d9296d30cb6053f353fa96c1d1e0c9cef4e7",
+    "sbox_history.json": "1ddc27d13281054721462adad3cf110163a62c547adc2ac000cc7f2d882a1716",
+    "key_schedule_diffusion.csv": "98c4908bd3d75f64f70337fbf2fd509d3099b8eda5d6aeb21f33ca525e7ff357"
+  },
+  "exports": "29 figure pairs: 300-dpi PNG and vector PDF; collected measurements unchanged"
+}

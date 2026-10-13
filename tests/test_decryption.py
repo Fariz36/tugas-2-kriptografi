@@ -55,5 +55,29 @@ class DecryptionTests(unittest.TestCase):
             decrypt_bytes(bytes(container), MASTER_KEY, ROUND_KEYS)
 
 
+class RevisionCompatibilityTests(unittest.TestCase):
+    def test_authenticated_old_version_rejected_before_decryption(self):
+        from unittest.mock import patch
+        from jav128.container import derive_mac_key
+        container = bytearray(encrypt_bytes(b'old-version rejection', MASTER_KEY, ROUND_KEYS, 'ECB'))
+        container[4] = 1
+        container[-TAG_SIZE:] = hmac.new(derive_mac_key(MASTER_KEY), container[:-TAG_SIZE], hashlib.sha256).digest()
+        with patch('jav128.decrypt.decrypt_mode') as decrypt_mode:
+            with self.assertRaisesRegex(ValueError, 'unsupported container version 1; expected 2'):
+                decrypt_bytes(bytes(container), MASTER_KEY, ROUND_KEYS)
+            decrypt_mode.assert_not_called()
+
+    def test_former_related_key_pairs_no_longer_collide(self):
+        plaintext = bytes(range(16))
+        baseline = encrypt_block(plaintext, ROUND_KEYS)
+        for bit in (31, 63, 95):
+            key, block = bytearray(MASTER_KEY), bytearray(plaintext)
+            key[bit // 8] ^= 1 << (bit % 8)
+            block[bit // 8] ^= 1 << (bit % 8)
+            keys = expand_round_keys(bytes(key))
+            self.assertTrue(all(a != b for a, b in zip(ROUND_KEYS[1:], keys[1:])))
+            self.assertNotEqual(encrypt_block(bytes(block), keys), baseline)
+
+
 if __name__ == "__main__":
     unittest.main()

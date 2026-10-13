@@ -2,7 +2,7 @@ import hashlib
 import hmac
 import unittest
 
-from jav128.constants import BLOCK_SIZE, MAGIC, MODE_IDS, TAG_SIZE
+from jav128.constants import BLOCK_SIZE, FORMAT_VERSION, MAGIC, MODE_IDS, TAG_SIZE
 from jav128.container import derive_mac_key
 from jav128.core import encrypt_block
 from jav128.encrypt import encrypt_bytes
@@ -26,7 +26,7 @@ class CipherCoreTests(unittest.TestCase):
         block = bytes(range(16))
         result = encrypt_block(block, ROUND_KEYS)
         self.assertEqual(len(result), BLOCK_SIZE)
-        self.assertEqual(result.hex(), "ba2649f2f0a66b9cce86a1e40a1b24ea")
+        self.assertEqual(result.hex(), "42ca398c6d4f7cf04f1209dd9ef6a92f")
         self.assertEqual(result, encrypt_block(block, ROUND_KEYS))
         self.assertNotEqual(result, block)
         with self.assertRaises(ValueError):
@@ -84,7 +84,7 @@ class ModeEncryptionTests(unittest.TestCase):
         nonce = bytes(range(16))
         container = encrypt_bytes(plaintext, MASTER_KEY, ROUND_KEYS, "CBC", nonce)
         self.assertEqual(container[:4], MAGIC)
-        self.assertEqual(container[4], 1)
+        self.assertEqual(container[4], FORMAT_VERSION)
         self.assertEqual(container[5], MODE_IDS["CBC"])
         self.assertEqual(container[6], BLOCK_SIZE)
         self.assertEqual(int.from_bytes(container[7:15], "big"), len(plaintext))

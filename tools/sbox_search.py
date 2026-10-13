@@ -18,7 +18,7 @@ except ImportError as exc:
     ) from exc
 
 
-DEFAULT_SEED = 0xDEADBEEF
+DEFAULT_SEED = 0xC0DEC0DE
 POPULATION_SIZE = 32
 GENERATION_COUNT = 50
 SA_STEPS = 5_000
@@ -128,6 +128,7 @@ def search_sbox(
     population_size: int = POPULATION_SIZE,
     generations: int = GENERATION_COUNT,
     sa_steps: int = SA_STEPS,
+    history: list[dict] | None = None,
 ) -> tuple[list[int], SBoxMetrics]:
     if population_size < ELITISM + TOURNAMENT_SIZE:
         raise ValueError("population size must be at least 5")
@@ -140,7 +141,10 @@ def search_sbox(
         candidate = rng.sample(range(256), 256)
         population.append((candidate, evaluate_sbox(candidate).fitness))
 
-    for _ in range(generations):
+    if history is not None:
+        history.append({"phase": "initial", "step": 0, **asdict(evaluate_sbox(min(population, key=lambda item: item[1])[0]))})
+
+    for generation in range(generations):
         population.sort(key=lambda item: item[1])
         next_population = population[:ELITISM]
         while len(next_population) < population_size:
@@ -155,6 +159,8 @@ def search_sbox(
                 child = _random_swap(child, rng)
             next_population.append((child, evaluate_sbox(child).fitness))
         population = next_population
+        if history is not None:
+            history.append({"phase": "GA", "step": generation + 1, **asdict(evaluate_sbox(min(population, key=lambda item: item[1])[0]))})
 
     population.sort(key=lambda item: item[1])
     current = population[0][0].copy()
@@ -173,6 +179,9 @@ def search_sbox(
             current, current_metrics = candidate, metrics
         if metrics.fitness < best_metrics.fitness:
             best, best_metrics = candidate, metrics
+
+        if history is not None and ((step + 1) % 100 == 0 or step + 1 == sa_steps):
+            history.append({"phase": "SA", "step": step + 1, **asdict(best_metrics)})
 
     return best, best_metrics
 
@@ -212,6 +221,12 @@ def write_outputs(
         "population_size": population_size,
         "generations": generations,
         "sa_steps": sa_steps,
+        "elitism": ELITISM,
+        "tournament_size": TOURNAMENT_SIZE,
+        "crossover_rate": CROSSOVER_RATE,
+        "mutation_rate": MUTATION_RATE,
+        "sa_initial_temperature": SA_INITIAL_TEMPERATURE,
+        "sa_final_temperature": SA_FINAL_TEMPERATURE,
         "metrics": asdict(metrics),
     }
     source_path.with_name("sbox_metadata.json").write_text(
@@ -230,12 +245,15 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         default=Path(__file__).resolve().parents[1] / "src" / "jav128" / "sbox.py",
     )
+    parser.add_argument("--history", type=Path, help="save best fitness at each GA generation and every 100 SA steps")
     args = parser.parse_args(argv)
+    history = [] if args.history else None
     sbox, metrics = search_sbox(
         seed=args.seed,
         population_size=args.population,
         generations=args.generations,
         sa_steps=args.sa_steps,
+        history=history,
     )
     write_outputs(
         sbox,
@@ -246,6 +264,9 @@ def main(argv: list[str] | None = None) -> int:
         args.generations,
         args.sa_steps,
     )
+    if args.history:
+        args.history.parent.mkdir(parents=True, exist_ok=True)
+        args.history.write_text(json.dumps(history, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(asdict(metrics), indent=2))
     print(f"Wrote {args.output} and {args.output.with_name('sbox_metadata.json')}")
     return 0
