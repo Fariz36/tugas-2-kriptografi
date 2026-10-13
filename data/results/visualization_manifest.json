@@ -10,5 +10,11 @@
     "sbox_history.json": "1ddc27d13281054721462adad3cf110163a62c547adc2ac000cc7f2d882a1716",
     "key_schedule_diffusion.csv": "98c4908bd3d75f64f70337fbf2fd509d3099b8eda5d6aeb21f33ca525e7ff357"
   },
-  "exports": "29 figure pairs: 300-dpi PNG and vector PDF; collected measurements unchanged"
+  "exports": "29 figure pairs: 300-dpi PNG and vector PDF; collected measurements unchanged",
+  "github_png_optimization": {
+    "method": "Lossless PNG optimization; remove fully opaque alpha channel; preserve dimensions, pixels, and DPI.",
+    "files": 29,
+    "bytes_before": 6125615,
+    "bytes_after": 5391239
+  }
 }

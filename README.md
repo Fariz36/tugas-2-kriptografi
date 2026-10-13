@@ -9,7 +9,9 @@ JAV-128 adalah cipher blok eksperimental untuk Tugas 2 IF4020 Kriptografi. Progr
 - Lima mode yang diimplementasikan sendiri: ECB, CBC, CFB-128, OFB, dan CTR.
 - Padding PKCS#7 pada semua mode dan autentikasi berkas dengan HMAC-SHA-256 dari pustaka standar Python.
 
-Revisi 2 memperbaiki fungsi pencampuran pada ekspansi kunci. Pada fungsi awal, perubahan bit tertinggi pada word tertentu dapat saling meniadakan sehingga kunci putaran berikutnya tetap sama. Fungsi baru memakai penjumlahan, substitusi byte melalui S-box, rotasi, dan XOR. Struktur putaran, mode operasi, dan tabel S-box tetap digunakan. Pengujian regresi tidak menemukan kembali tabrakan pada 96 pasangan yang diuji; hasil ini bukan bukti keamanan kriptografis secara menyeluruh.
+Setiap blok dibaca sebagai empat word 32-bit little-endian. Pada setiap putaran, state diproses melalui XOR dengan kunci putaran, substitusi S-box, permutasi byte, rotasi yang bergantung pada data, pencampuran ARX, dan XOR dengan konstanta putaran. Setelah 16 putaran, program menerapkan XOR dengan kunci terakhir. Dekripsi membalik operasi tersebut dalam urutan terbalik. Ekspansi kunci menghasilkan 17 kunci putaran melalui penjumlahan konstanta, substitusi byte, rotasi, dan XOR.
+
+S-box dibentuk melalui pencarian Genetic Algorithm (GA) yang dilanjutkan dengan Simulated Annealing (SA). Kandidat dinilai berdasarkan differential uniformity, nonlinearity, dan penyimpangan Strict Avalanche Criterion (SAC). Tabel hasil pencarian ditetapkan sebelum pengujian cipher. Metodologi dan analisis lengkap dijelaskan dalam laporan.
 
 ## Instalasi
 
@@ -37,7 +39,7 @@ jav128 analyze --input hasil.jav --plaintext data/inputs/text_utf8.txt --key-hex
 
 Kunci harus terdiri atas 32 digit heksadesimal. Pilihan `--mode` adalah `ECB`, `CBC`, `CFB`, `OFB`, atau `CTR`. Pada mode selain ECB, program membuat IV/counter acak sepanjang 16 byte. Untuk demonstrasi yang dapat diulang, gunakan `--nonce-hex` dengan 32 digit heksadesimal. Dekripsi membaca mode dan IV/counter dari berkas hasil enkripsi.
 
-Berkas `.jav` merupakan container biner dengan magic `JAV1` dan versi 2. Program menolak container versi 1. Autentikasi, padding, dan panjang data diperiksa sebelum hasil dekripsi ditulis. Perintah `analyze` memeriksa kecocokan plainteks, lalu menghitung entropi byte dan histogram payload cipherteks. Pemrosesan berkas berlangsung di memori, sehingga ukuran masukan dibatasi oleh RAM yang tersedia.
+Berkas `.jav` merupakan container biner dengan magic `JAV1`. Autentikasi, padding, dan panjang data diperiksa sebelum hasil dekripsi ditulis. Perintah `analyze` memeriksa kecocokan plainteks, lalu menghitung entropi byte dan histogram payload cipherteks. Pemrosesan berkas berlangsung di memori, sehingga ukuran masukan dibatasi oleh RAM yang tersedia.
 
 ## Pengujian dan pengumpulan data
 
@@ -72,17 +74,16 @@ python -m tools.sbox_search --seed 0xC0DEC0DE --history data/results/sbox_histor
 | `data/results/` | Data numerik, catatan eksperimen, dan log pemeriksaan |
 | `data/plots/` | Grafik yang dihasilkan oleh `tools.plot_results` |
 
-Hasil revisi 2 mencakup 24 uji unit yang lulus, 50 pengujian enkripsi–dekripsi berkas, 160 pemeriksaan penolakan, 9.216 percobaan avalanche, 35 vektor blok, dan 4.096 perbandingan perubahan satu bit kunci. Data utama tersedia di berkas berikut:
+Hasil pengujian mencakup 24 uji unit yang lulus, 50 pengujian enkripsi–dekripsi berkas, 160 pemeriksaan penolakan, 9.216 percobaan avalanche, 35 vektor blok, dan 4.096 perbandingan perubahan satu bit kunci. Data utama tersedia di berkas berikut:
 
 | Berkas dalam `data/results/` | Isi |
 | --- | --- |
-| [manifest.json](data/results/manifest.json) | Revisi, lingkungan, seed, kunci/IV uji, serta hash masukan dan kode saat pengumpulan |
+| [manifest.json](data/results/manifest.json) | Lingkungan, seed, kunci/IV uji, serta hash masukan dan kode saat pengumpulan |
 | [roundtrips.csv](data/results/roundtrips.csv); [integrity.csv](data/results/integrity.csv) | Keberhasilan enkripsi–dekripsi dan penolakan masukan tidak valid |
 | [avalanche_raw.csv](data/results/avalanche_raw.csv); [avalanche_summary.csv](data/results/avalanche_summary.csv) | Pengamatan avalanche dan ringkasannya |
 | [histograms.json](data/results/histograms.json) | Frekuensi byte plainteks dan cipherteks |
-| [key_schedule_regression.csv](data/results/key_schedule_regression.csv); [related_key_regression.json](data/results/related_key_regression.json) | Pengujian ekspansi kunci setelah revisi |
+| [key_schedule_regression.csv](data/results/key_schedule_regression.csv); [related_key_regression.json](data/results/related_key_regression.json) | Pengujian regresi ekspansi kunci |
 | [known_vectors.json](data/results/known_vectors.json) | Vektor blok, kunci putaran, dan jejak putaran |
-| [archive_removal_validation.json](data/results/archive_removal_validation.json) | Pemeriksaan setelah penghapusan arsip versi lama |
 | [artifact_hashes.json](data/results/artifact_hashes.json) | Hash SHA-256 artefak data yang tersimpan |
 
-`manifest.json` adalah catatan eksperimen dan tidak diperlukan untuk mengenkripsi atau mendekripsi berkas. Hash membantu mengenali hasil yang tersimpan. Arsip implementasi revisi 1 telah dihapus; alasan perubahan dijelaskan pada bagian desain di atas. JAV-128 merupakan proyek pendidikan dan belum memiliki bukti keamanan untuk penggunaan produksi.
+`manifest.json` adalah catatan eksperimen dan tidak diperlukan untuk mengenkripsi atau mendekripsi berkas. Hash membantu mengenali hasil yang tersimpan. JAV-128 merupakan proyek pendidikan dan belum memiliki bukti keamanan untuk penggunaan produksi.
